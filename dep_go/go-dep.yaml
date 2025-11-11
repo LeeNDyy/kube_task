@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+# метаданные
+metadata:
+  name: go-ser
+
+#спецификация  
+spec:
+  selector:
+    matchLabels:
+      app: go-ser
+  replicas: 2 # Specifies that 2 pods matching the template should be running
+  template:
+    metadata:
+    # метка
+      labels:
+        app: go-ser
+    spec:
+    # запуск контейнера
+      containers:
+      - name: go-ser
+        image: go-server:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80

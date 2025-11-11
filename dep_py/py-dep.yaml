@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+# метаданные
+metadata:
+  name: py-ser
+
+#спецификация  
+spec:
+  selector:
+    matchLabels:
+      app: py-ser
+  replicas: 3 # Specifies that 2 pods matching the template should be running
+  template:
+    metadata:
+    # метка
+      labels:
+        app: py-ser
+    spec:
+    # запуск контейнера
+      containers:
+      - name: py-ser
+        image: py-server:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: py-ser
+  ports:
+    - protocol: TCP
+      port: 80 # Port the Service exposes
+      targetPort: 80 # Port on the Pods the Service forwards to
+      nodePort: 30800
+  type: NodePort # Or NodePort/LoadBalancer for external access
