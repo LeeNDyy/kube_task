@@ -1,0 +1,18 @@
+version: "3"
+
+dotenv:
+ - .env
+
+tasks:
+
+  update-py:
+    cmd: kubectl apply -f ./dep_py/py-dep.yaml
+            
+  update-py-ser:
+    cmd: kubectl apply -f ./dep_py/py-ser.yaml
+
+  update-go:
+    cmd: kubectl apply -f ./dep_go/go-dep.yaml
+    
+  update-go-ser:
+    cmd: kubectl apply -f ./dep_go/go-ser.yaml
